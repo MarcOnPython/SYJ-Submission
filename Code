@@ -1,0 +1,39 @@
+elderly = []
+middle_age = []
+young_adult = []
+
+name = raw_input("What is your name? ")
+age = raw_input("How old are you? ")
+rating = raw_input("What would you rate your technological literacy (1-10) ")
+
+if int(age) >= 16 and int(age) <= 24:
+    young_adult.append(str(name))
+    with open ('young_adult', 'a') as thefile:
+        thefile.write("{}, {}, {}\n".format(name.title(), age, rating))
+    
+elif int(age) >= 25 and int(age) <= 64:
+    middle_age.append(str(name))
+    with open ('middle_age', 'a') as thefile:
+        thefile.write("{}, {}, {}\n".format(name.title(), age, rating))
+    
+elif int(age) > 65:
+    elderly.append(str(name))
+    with open ('elderly', 'a') as thefile:
+        thefile.write("{}, {}, {}\n".format(name.title(), age, rating))
+
+else:
+    print("You are too young for this activity")
+
+q1 = raw_input("1.Do you have a computer at home and/or a mobile phone?(Y/N) ")
+if q1 == 'N':
+    print("Our advice is that you should buy a computer!")
+elif q1 == 'Y':
+    q2 = raw_input("2.Do you know how to use the internet?(Y/N) ")
+    if q2 == "N":
+        print("Our advice is that you should attend an internet workshop!")
+    elif q2 == 'Y':
+        q3 = raw_input("3.Do you have online banking?(Y/N) ")
+        if q3 == 'N':
+            print("Our advice is that you should attend an online banking workshop")
+        elif q3 == 'Y':
+            topic = raw_input("What topic would you like to learn more about? ")
